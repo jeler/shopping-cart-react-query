@@ -23,3 +23,7 @@ What you’ll practice:
 - sharing state across components
 - combining server state with local state
 - working with derived state
+
+## What I Added
+
+-04-25-24: removing an item from cart (right now, we are decreasing the quantity if quantity doesn't hit 0 and removing item completely if it does)
