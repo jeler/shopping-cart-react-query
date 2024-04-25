@@ -1,11 +1,9 @@
 
-import { createContext, useEffect, useState } from "react";
+import { useState } from "react";
 import ProductList from "./ProductList";
 import ShoppingCart from "./ShoppingCart";
 import { fetchProducts } from "./api-mock/products-api";
 import { useQuery } from "react-query";
-
-const ShoppingCartProducts = createContext([]);
 
 // 2 lists = 1 for products, 1 for shopping cart with quantity
 
