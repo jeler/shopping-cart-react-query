@@ -4,14 +4,12 @@ export default function ShoppingCart({cart, products}) {
     console.log(cart, 'dis cart')
     const cartWithDetails = cart.map(item => {
         const productDetails = products.find(prod => prod.id === item.productId);
-        // const total = calculateTotal(item.quantity, productDetails.price)
         return {
           ...item,
           cost: productDetails.price,
           productName: productDetails.name,
           price: productDetails.price,
           totalProductPrice: calculateTotalItemCost(item.quantity, productDetails.price)
-          // totalProductPrice: item.quantity * productDetails.price
         }
       })
 
