@@ -4,20 +4,29 @@ export default function ShoppingCart({cart, products}) {
     console.log(cart, 'dis cart')
     const cartWithDetails = cart.map(item => {
         const productDetails = products.find(prod => prod.id === item.productId);
-        console.log(productDetails , 'dis details')
+        // const total = calculateTotal(item.quantity, productDetails.price)
         return {
           ...item,
           cost: productDetails.price,
           productName: productDetails.name,
           price: productDetails.price,
-          totalProductPrice: item.quantity * productDetails.price
+          totalProductPrice: calculateTotalItemCost(item.quantity, productDetails.price)
+          // totalProductPrice: item.quantity * productDetails.price
         }
       })
-      console.log(cartWithDetails, 'dis detials')
 
       const totalCartPrice = cartWithDetails.reduce((total, currentItem) => {
         return total + currentItem.totalProductPrice;
       }, 0);
+
+      function calculateTotalItemCost(quantity, price) {
+        const regularTotal = quantity * price;
+        if(quantity > 2) {
+          const discountAmount = quantity * price* 0.10;
+          return regularTotal - discountAmount
+        }
+        return regularTotal;
+      }
     
     return (
         <div style={{backgroundColor: 'lightblue'}}>

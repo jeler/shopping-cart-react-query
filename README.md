@@ -27,3 +27,4 @@ What you’ll practice:
 ## What I Added
 
 -04-25-24: removing an item from cart (right now, we are decreasing the quantity if quantity doesn't hit 0 and removing item completely if it does)
+-05-08-24: added discount
