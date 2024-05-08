@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ShoppingCart({cart, products}) {
-    console.log(cart, 'dis cart')
     const cartWithDetails = cart.map(item => {
         const productDetails = products.find(prod => prod.id === item.productId);
         return {

@@ -23,7 +23,6 @@ const App = () => {
 
 const handleAddProduct = (product) => {
   const currentProduct = cart.find(cartProduct => cartProduct.productId === product.id);
-  console.log(currentProduct, 'dis curr prod')
   if(currentProduct) {
     setCart(cart.map(cartProduct => {
       if(cartProduct.productId === product.id) {
@@ -47,7 +46,6 @@ const handleRemoveProduct = (product) => {
     }))
   } else {
     const filteredCart = cart.filter(cartProduct => cartProduct.quantity < 1);
-    console.log(filteredCart, 'dis filtered cart')
     setCart(filteredCart)
   }
 }
