@@ -20,15 +20,19 @@ export default function ShoppingCart({cart, products}) {
         const regularTotal = quantity * price;
         if(quantity > 2) {
           const discountAmount = quantity * price* 0.10;
-          return regularTotal - discountAmount
+          return (regularTotal - discountAmount)
         }
         return regularTotal;
       }
+
+      const calculateTotalProducts = cartWithDetails.reduce((total, currentItem) => {
+        return total + currentItem.quantity
+      }, 0)
     
     return (
         <div style={{backgroundColor: 'lightblue'}}>
           <h3>Shopping cart</h3>
-          <p>You have {cart.length} products in your cart.</p>
+          <p>You have {calculateTotalProducts} products in your cart.</p>
           
           <div style={{display: 'grid', gridTemplateColumns: "1fr 0.5fr 0.5fr"}}>
             <div>Product</div>
@@ -43,13 +47,13 @@ export default function ShoppingCart({cart, products}) {
                 {product.quantity}
             </div>
             <div>
-                ${product.price}
+                ${product.price.toFixed(2)}
             </div>
             </>
         ) )}
           </div>
           <div style={{display: 'grid', gridTemplateColumns: "1fr", justifyItems: "end"}}>
-            Total Price: ${totalCartPrice}
+            Total Price: ${totalCartPrice.toFixed(2)}
           </div>
         </div>
       );
