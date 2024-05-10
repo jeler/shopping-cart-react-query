@@ -64,7 +64,6 @@ describe('discount additions', () => {
     render(<ShoppingCart cart={cartNoDiscount} products={products} />);
     const cartTotal = screen.getByTestId('product-total');
     const totalPrice = screen.getByTestId('total-price');
-    // expect(element.textContent).toBe('Total Price: $36.00');
     expect(cartTotal.textContent).toBe('You have 2 products in your cart.');
     expect(totalPrice.textContent).toContain('36.00');
 
