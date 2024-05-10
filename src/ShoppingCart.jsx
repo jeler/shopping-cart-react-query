@@ -32,9 +32,9 @@ export default function ShoppingCart({cart, products}) {
     return (
         <div style={{backgroundColor: 'lightblue'}}>
           <h3>Shopping cart</h3>
-          <p>You have {calculateTotalProducts} products in your cart.</p>
+          <p data-testid="product-total">You have {calculateTotalProducts} products in your cart.</p>
           
-          <div style={{display: 'grid', gridTemplateColumns: "1fr 0.5fr 0.5fr"}}>
+          <div data-testid="cart-display" style={{display: 'grid', gridTemplateColumns: "1fr 0.5fr 0.5fr"}}>
             <div>Product</div>
             <div>Quantity</div>
             <div>Price</div>
@@ -52,7 +52,7 @@ export default function ShoppingCart({cart, products}) {
             </>
         ) )}
           </div>
-          <div style={{display: 'grid', gridTemplateColumns: "1fr", justifyItems: "end"}}>
+          <div data-testid="total-price" style={{display: 'grid', gridTemplateColumns: "1fr", justifyItems: "end"}}>
             Total Price: ${totalCartPrice.toFixed(2)}
           </div>
         </div>
